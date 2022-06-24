@@ -35,4 +35,20 @@ class OrderController extends Controller
             'vorder' => $names,
         ]);
     }
+
+    public function delete($id){
+        $data = Order::find($id);
+        $data -> delete();
+    }
+
+    public function search() {
+       // $projects = Order::where("name", "=", "zihannn")->get();
+        $projects = Order::find(10);
+
+       // dd($projects);
+        return response()->json([
+            'status'=> 200,
+            'vorder' => $projects,
+        ]);
+    }
 }
